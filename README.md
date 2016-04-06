@@ -114,14 +114,16 @@ You can install these via brew.
 
 Step 21:  Build the Scala/Spark Program.  You must have Spark 1.6.0+ installed
 
-cd storageformats_meetup
-sbt clean assembly
+  cd storageformats_meetup
+  
+  sbt clean assembly
 
 Step 22:  Submit This jar to Spark to Run.   You will need Spark installed and accessible in your path.   (brew install spark or see previous meetups).   Submit the Kafka Avro Producer.  Spark-submit must be installed relevant to where you are.
 
 spark-submit --class com.airisdata.streamingutils.ClickEmitter target/scala-2.10/storageformats_meetup-assembly-1.0.jar localhost:9092 test
 
 Step 23:  Submit Avro Consumer
+
 spark-submit --class com.airisdata.streamingutils.KafkaAvroConsumer target/scala-2.10/storageformats_meetup-assembly-1.0.jar test 2
 
 Step 24:   View the Spark History server (if you are running that)
